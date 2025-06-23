@@ -63,3 +63,9 @@ img {
     height: 175px;
     margin: 5px;
 }
+
+.gamepicker {
+    position: absolute;
+    right: 20px;
+    border-style: solid;
+}
