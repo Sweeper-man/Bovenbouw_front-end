@@ -1,6 +1,7 @@
-// import data from './opdracht1_bijlage.json' assert { type: 'json' };
-// console.log(data);
-
 fetch('opdracht1_bijlage.json')
-.then(x => x.text())
-.then(y => document.getElementById("demo").innerHTML = y);
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    document.getElementById("demo").textContent = JSON.stringify(data, null, 2);
+  })
+  .catch(err => console.error("Error loading JSON:", err));
