@@ -20,19 +20,38 @@ fetch("games.json")
         output.appendChild(borderDiv).innerHTML = text;
     }
 
-    document.getElementById("filterBtn").addEventListener("click", filterPrice);
+    document.getElementById("GenreFltrBtn").addEventListener("click", filterGenre);
+
+    function filterGenre () {
+
+      let text = "";
+
+      let genreF = document.getElementById("genreF").value;
+      let filteredGe = data.filter(item => item.genre == genreF);
+
+      for (let i = 0; i < filteredGe.length; i++) {
+        text +=
+          filteredGe[i].title + ", " +
+          filteredGe[i].genre + "<br>"; 
+      }
+
+      document.getElementById("output").innerHTML = text;
+    }
+
+    
+    document.getElementById("PrijsFltrBtn").addEventListener("click", filterPrice);
 
     function filterPrice () {
       
       let text = "";
 
       let priceF = document.getElementById("priceF").value;
-      let filteredP = data.filter(item => item.price <= priceF);
+      let filteredPr = data.filter(item => item.price <= priceF);
 
-      for (let i = 0; i < filteredP.length; i++) {
+      for (let i = 0; i < filteredPr.length; i++) {
         text += 
-          filteredP[i].title + ", " +
-          "€" + filteredP[i].price + "<br>";
+          filteredPr[i].title + ", " +
+          "€" + filteredPr[i].price + "<br>";
       }
 
       document.getElementById("output").innerHTML = text;
